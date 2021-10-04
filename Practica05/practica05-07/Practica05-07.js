@@ -7,31 +7,29 @@ function comprobar(cadena){
 	cadena = cadena.toUpperCase();
 	cadena.trim();
 	if(esletra(cadena.charCodeAt(0)) && esletra(cadena.charCodeAt(cadena.length-1))){
-		if(cadena.length > 3 && cadena.length < 27){
-			if(comprobarCaracteres(cadena))
-			return true;
+		if(cadena.length >= 3 && cadena.length <= 27){
+			return comprobarCaracteres(cadena);
 		}
+		return false;
 	}
 	return false;
 }
 
 function esletra(letra){
-	return (letra > 64 && letra < 91) || letra == 209;
+	return (letra > 64 && letra < 91) || letra == 209 || letra == 193 || letra == 201 || letra == 205 || letra == 211 || letra == 218 || letra == 220;
 }
 
 function comprobarCaracteres(cadena){
-	for(var i = 0; cadena.length;i++){
-		
-	}
-
-	if(esletra(cadena[i])){
-		return true;
-	}else{
-		if(!cadena[i].match(/[1-9]/i)){
-			return true
+	for(var i = 0;i <= cadena.length;i++){
+		if(esletra(cadena[i])){
+			return true;
 		}else{
-			if(cadena[i] == "º")
-		}
+			if(!cadena[i].match(/[1-9]/i)){
+				return true
+			}else{
+				return (cadena[i] == "º" || cadena[i] == "ª" || cadena[i] == "-")
+			}
+		}	
 	}
 }
 
