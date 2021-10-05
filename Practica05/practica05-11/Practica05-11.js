@@ -20,14 +20,6 @@ function comprobarLocalidad(localidad){
 	return false;	
 }
 
-function esLetra(letra){
-	letra = letra.toUpperCase();
-	letra = letra.charCodeAt(0);
-	return (letra > 64 && letra < 91) || letra == 209 
-		|| letra == 193 || letra == 201 || letra == 205 
-		|| letra == 211 || letra == 218 || letra == 220;
-}
-
 function comprobarCaracteres(cadena){
 	var valido = true;
 	for(var i = 0;i < cadena.length; i++){
@@ -38,6 +30,14 @@ function comprobarCaracteres(cadena){
 		}	
 	}
 	return valido;
+}
+
+function esLetra(letra){
+	letra = letra.toUpperCase();
+	letra = letra.charCodeAt(0);
+	return (letra > 64 && letra < 91) || letra == 209 
+		|| letra == 193 || letra == 201 || letra == 205 
+		|| letra == 211 || letra == 218 || letra == 220;
 }
 
 function esSigno(signo){

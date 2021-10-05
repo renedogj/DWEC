@@ -32,6 +32,26 @@ function comprobarurl(url){
 	return false;
 }
 
+function comprobarCaracteres(cadena){
+	var valido = true;
+	for(var i = 0;i < cadena.length; i++){
+		if(esLetra(cadena[i])){
+			valido = true;
+		}else{
+			if(esDigito(cadena[i])){
+				valido = true
+			}else{
+				if(esSigno(cadena[i])){
+					valido = true;
+				}else {
+					return false;
+				}
+			}
+		}	
+	}
+	return valido;
+}
+
 function esLetra(letra){
 	letra = letra.toUpperCase();
 	letra = letra.charCodeAt(0);
@@ -40,20 +60,8 @@ function esLetra(letra){
 		|| letra == 211 || letra == 218 || letra == 220;
 }
 
-function comprobarCaracteres(cadena){
-	var valido = true;
-	for(var i = 0;i < cadena.length; i++){
-		if(esLetra(cadena[i])){
-			valido = true;
-		}else{
-			if(!cadena[i].match(/[1-9]/i)){
-				valido = true
-			}else{
-				valido = esSigno(cadena[i]);
-			}
-		}	
-	}
-	return valido;
+function esDigito(digito){
+	return digito.match(/[1-9]/i);
 }
 
 function esSigno(signo){
