@@ -1,55 +1,4 @@
-var provincias = ["Araba/Álava",
-"Albacete",
-"Alicante/Alacant",
-"Almería",
-"Ávila",
-"Badajoz",
-"Baleares",
-"Barcelona",
-"Burgos",
-"Cáceres",
-"Cádiz",
-"Castellón/Castelló",
-"Ciudad Real",
-"Córdoba",
-"A Coruña",
-"Cuenca",
-"Gerona",
-"Granada",
-"Guadalajara",
-"Guipúzcoa",
-"Huelva",
-"Huesca",
-"Jaén",
-"León",
-"Lérida",
-"La Rioja",
-"Lugo",
-"Madrid",
-"Málaga",
-"Murcia",
-"Navarra",
-"Orense",
-"Asturias",
-"Palencia",
-"Las Palmas",
-"Pontevedra",
-"Salamanca",
-"Santa Cruz de Tenerife",
-"Cantabria",
-"Segovia",
-"Sevilla",
-"Soria",
-"Tarragona",
-"Teruel",
-"Toledo",
-"Valencia/València",
-"Valladolid",
-"Vizcaya",
-"Zamora",
-"Zaragoza",
-"Ceuta",
-"Melilla"];
+var provincias = ["Araba/Álava","Albacete","Alicante/Alacant","Almería","Ávila","Badajoz","Baleares","Barcelona","Burgos","Cáceres","Cádiz","Castellón/Castelló","Ciudad Real","Córdoba","A Coruña","Cuenca","Gerona","Granada","Guadalajara","Guipúzcoa","Huelva","Huesca","Jaén","León","Lérida","La Rioja","Lugo","Madrid","Málaga","Murcia","Navarra","Orense","Asturias","Palencia","Las Palmas","Pontevedra","Salamanca","Santa Cruz de Tenerife","Cantabria","Segovia","Sevilla","Soria","Tarragona","Teruel","Toledo","Valencia/València","Valladolid","Vizcaya","Zamora","Zaragoza","Ceuta","Melilla"];
 
 document.primero.nif.onfocus = colorFondoRojo;
 document.primero.nombre.onfocus = colorFondoRojo;
@@ -104,12 +53,12 @@ function ponerImagenFondo (event) {
 	}
 }
 
-document.primero.provin.checked	= mostrarImagenProvincia;
+for (var i = 0; i < 4; i++) {
+	document.primero.provin[i].onfocus	= mostrarImagenProvincia;
+}
 
 function mostrarImagenProvincia() {
-	console.log("AAA");
-	console.log(this.value);
-	document.primero.imgprovincia.src = this.value;
+	document.primero.imgprovincia.src = "imagenes/" + this.value + ".jpg";
 }
 
 document.primero.viajar.onchange = añadirImgAficion;
@@ -123,8 +72,6 @@ arryImgAficiones = [];
 
 function añadirImgAficion(){
 	arryImgAficiones.push("imagenes/" + this.value + ".jpg");
-	//console.log(arryImgAficiones.length);
-	//setInterval(alternarImagenes(),1000);
 }
 
 var contador = 0;
@@ -139,8 +86,28 @@ setInterval(function (){
 	}
 },1000);
 
-//window.onload = bienvenida;
+window.onload = bienvenida;
 
 function bienvenida(){
 	alert("Bienvenido!!!");
+}
+
+window.primero.nombre.onkeyup = comprobarCaracteres;
+window.primero.apellidos.onkeyup = comprobarCaracteres;
+window.primero.localidad.onkeyup = comprobarCaracteres;
+
+function comprobarCaracteres(event){
+	var x = event.key;
+	if(!esLetra(x) && x != " "){
+		cadena = this.value;
+		this.value = cadena.substring(0, cadena.length - 1);
+	}
+}
+
+function esLetra(letra){
+	letra = letra.toUpperCase();
+	letra = letra.charCodeAt(0);
+	return (letra > 64 && letra < 91) || letra == 209 
+		|| letra == 193 || letra == 201 || letra == 205 
+		|| letra == 211 || letra == 218 || letra == 220;
 }
