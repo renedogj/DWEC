@@ -29,7 +29,7 @@ function colorFondoBlanco () {
 function comprobarCodigoPostal(){
 	cp = document.primero.cp.value;
 	if(cp != null){
-		if(cp.match(/[1-9]/i)){
+		if(esDigito(cp)){
 			if(cp.length >= 2){
 				provincia = provincias[parseInt(cp.substring(0,2))-1];
 				document.primero.provincia.value = provincia;
@@ -97,24 +97,16 @@ function bienvenida(){
 	alert("Bienvenido!!!");
 }
 
-window.primero.nombre.onkeypress = comprobarCaracteres;
-window.primero.apellidos.onkeypress = comprobarCaracteres;
-window.primero.localidad.onkeypress = comprobarCaracteres;
+window.primero.nombre.onkeypress = comprobarCaracter;
+window.primero.apellidos.onkeypress = comprobarCaracter;
+window.primero.localidad.onkeypress = comprobarCaracter;
 
-function comprobarCaracteres(event){
+function comprobarCaracter(event){
 	var x = event.key;
 	if(!esLetra(x) && x != " "){
 		return false;
 	}
 	return true;
-}
-
-function esLetra(letra){
-	letra = letra.toUpperCase();
-	letra = letra.charCodeAt(0);
-	return (letra > 64 && letra < 91) || letra == 209 
-		|| letra == 193 || letra == 201 || letra == 205 
-		|| letra == 211 || letra == 218 || letra == 220;
 }
 
 document.primero.onreset = limpiar;
@@ -130,7 +122,10 @@ document.primero.onsubmit = enviar;
 function enviar(){
 	return esNif(document.primero.nif.value)
 	&& nombreValido(document.primero.nombre.value)
-	&& apellidoValido(document.primero.apellidos.value);
+	&& apellidoValido(document.primero.apellidos.value)
+	&& domicilioValido(document.primero.domicilio.value)
+	&& localidadValido(document.primero.localidad.value)
+	&& codigoPostalValido(document.primero.cp.value);
 }
 
 function esNif (nif) {
@@ -139,15 +134,14 @@ function esNif (nif) {
 	if(nif.length == 9){
 		if(esLetra(nif[0]) && esLetra(nif[8])){
 			var nums = nif.substring(1,8);
-			if(letrasControl.includes(nif[0]) && caracterControl.includes(nif[8]) && nums.match(/[1-9]/i)){
+			if(letrasControl.includes(nif[0]) && caracterControl.includes(nif[8]) && esDigito(nums)){
 				nums = letrasControl.indexOf(nif[0]) + nums;
-				console.log(nums);
 				return caracterControl[nums%23] == nif[8];
 			}
 			return false;
 		}else if(esLetra(nif[8])){
 			var nums = nif.substring(0,8);
-			if(nums.match(/[1-9]/i)){
+			if(esDigito(nums)){
 				return caracterControl[nums%23] == nif[8];
 			}
 			return false;
@@ -193,4 +187,90 @@ function apellidoValido(apellido){
 		return true;
 	}
 	return false;
+}
+
+function domicilioValido(domicilio){
+	if(domicilio.length >= 15 && domicilio.length <= 40){
+		cadena = domicilio.substring(0,3);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		cadena = domicilio.substring(3,domicilio.length-1);
+		if(comprobarCaracteres(cadena)){
+			return false;
+		}
+		
+		if(!esLetra(domicilio[domicilio.length-1]) && !esDigito(domicilio[domicilio.length-1])){
+			return false;
+		}			
+		return true;
+	}
+	return false;
+}
+
+function localidadValido(localidad){
+	if(localidad.length >= 10 && localidad.length <= 30){
+		cadena = localidad.substring(0,3);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		cadena = localidad.substring(localidad.length-3,localidad.length);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}			
+		return true;
+	}
+	return false;
+}
+
+function codigoPostalValido(codigoPostal){
+	for(var i = 0;i < codigoPostal.length; i++){
+		if(!esDigito(codigoPostal[i])){
+			return false;
+		}			
+	}
+	codigoPostal = parseInt(codigoPostal);
+	return codigoPostal > 1000 && codigoPostal <= 52999;
+}
+
+function comprobarCaracteres(cadena){
+	var valido = true;
+	for(var i = 0;i < cadena.length; i++){
+		if(esLetra(cadena[i])){
+			valido = true;
+		}else{
+			if(esDigito(cadena[i])){
+				valido = true
+			}else{
+				if(esSigno(cadena[i])){
+					valido = true;
+				}else {
+					return false;
+				}
+			}
+		}	
+	}
+	return valido;
+}
+
+function esLetra(letra){
+	letra = letra.toUpperCase();
+	letra = letra.charCodeAt(0);
+	return (letra > 64 && letra < 91) || letra == 209 
+		|| letra == 193 || letra == 201 || letra == 205 
+		|| letra == 211 || letra == 218 || letra == 220;
+}
+
+function esDigito(digito){
+	return digito.match(/[1-9]/i);
+}
+
+function esSigno(signo){
+	return signo == "," || signo == "." || signo == "º";
 }
