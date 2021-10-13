@@ -68,21 +68,26 @@ document.primero.cine.onchange = añadirImgAficion;
 document.primero.deporte.onchange = añadirImgAficion;
 document.primero.cena.onchange = añadirImgAficion;
 
-arryImgAficiones = [];
+arrayImgAficiones = [];
 
 function añadirImgAficion(){
-	arryImgAficiones.push("imagenes/" + this.value + ".jpg");
+	var imagen = "imagenes/" + this.value + ".jpg";
+	if(!arrayImgAficiones.includes(imagen)){
+		arrayImgAficiones.push(imagen);
+	}else{
+		arrayImgAficiones.splice(arrayImgAficiones.indexOf(imagen),1);
+	}
 }
 
 var contador = 0;
-setInterval(function (){
-	if(arryImgAficiones.length > 0){
-		if(contador == arryImgAficiones.length-1){
+var intervalImagenes = setInterval(function (){
+	if(arrayImgAficiones.length > 0){
+		if(contador == arrayImgAficiones.length-1){
 			contador = 0;
 		}else{
 			contador++;
 		}
-		document.primero.img_aficion.src = arryImgAficiones[contador];
+		document.primero.img_aficion.src = arrayImgAficiones[contador];
 	}
 },1000);
 
@@ -92,16 +97,16 @@ function bienvenida(){
 	alert("Bienvenido!!!");
 }
 
-window.primero.nombre.onkeyup = comprobarCaracteres;
-window.primero.apellidos.onkeyup = comprobarCaracteres;
-window.primero.localidad.onkeyup = comprobarCaracteres;
+window.primero.nombre.onkeypress = comprobarCaracteres;
+window.primero.apellidos.onkeypress = comprobarCaracteres;
+window.primero.localidad.onkeypress = comprobarCaracteres;
 
 function comprobarCaracteres(event){
 	var x = event.key;
 	if(!esLetra(x) && x != " "){
-		cadena = this.value;
-		this.value = cadena.substring(0, cadena.length - 1);
+		return false;
 	}
+	return true;
 }
 
 function esLetra(letra){
@@ -110,4 +115,82 @@ function esLetra(letra){
 	return (letra > 64 && letra < 91) || letra == 209 
 		|| letra == 193 || letra == 201 || letra == 205 
 		|| letra == 211 || letra == 218 || letra == 220;
+}
+
+document.primero.onreset = limpiar;
+
+function limpiar(){
+	document.primero.img_aficion.src = "";
+	document.primero.imgprovincia.src = "";
+	intervalImagenes = [];
+}
+
+document.primero.onsubmit = enviar;
+
+function enviar(){
+	return esNif(document.primero.nif.value)
+	&& nombreValido(document.primero.nombre.value)
+	&& apellidoValido(document.primero.apellidos.value);
+}
+
+function esNif (nif) {
+	var caracterControl = ["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+	var letrasControl = ["X","Y","Z","L","K","M"];
+	if(nif.length == 9){
+		if(esLetra(nif[0]) && esLetra(nif[8])){
+			var nums = nif.substring(1,8);
+			if(letrasControl.includes(nif[0]) && caracterControl.includes(nif[8]) && nums.match(/[1-9]/i)){
+				nums = letrasControl.indexOf(nif[0]) + nums;
+				console.log(nums);
+				return caracterControl[nums%23] == nif[8];
+			}
+			return false;
+		}else if(esLetra(nif[8])){
+			var nums = nif.substring(0,8);
+			if(nums.match(/[1-9]/i)){
+				return caracterControl[nums%23] == nif[8];
+			}
+			return false;
+		}
+		return false;
+	}
+	return false;
+}
+
+function nombreValido(nombre){
+	if(nombre.length >= 6 && nombre.length <= 20){
+		cadena = nombre.substring(0,3);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		cadena = nombre.substring(nombre.length-2,nombre.length);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		return true;
+	}
+	return false;
+}
+
+function apellidoValido(apellido){
+	if(apellido.length >= 12 && apellido.length <= 35){
+		cadena = apellido.substring(0,4);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		cadena = apellido.substring(apellido.length-5,apellido.length);
+		for(var i = 0;i < cadena.length; i++){
+			if(!esLetra(cadena[i])){
+				return false;
+			}			
+		}
+		return true;
+	}
+	return false;
 }
