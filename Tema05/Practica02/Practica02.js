@@ -120,7 +120,7 @@ function limpiar(){
 document.primero.onsubmit = enviar;
 
 function enviar(){
-	return esNif(document.primero.nif.value)
+	return esNif(document.primero.nif.value) == 1
 	&& nombreValido(document.primero.nombre.value)
 	&& apellidoValido(document.primero.apellidos.value)
 	&& domicilioValido(document.primero.domicilio.value)
@@ -136,19 +136,35 @@ function esNif (nif) {
 			var nums = nif.substring(1,8);
 			if(letrasControl.includes(nif[0]) && caracterControl.includes(nif[8]) && esDigito(nums)){
 				nums = letrasControl.indexOf(nif[0]) + nums;
-				return caracterControl[nums%23] == nif[8];
+				if(caracterControl[nums%23] == nif[8]){
+					return 1;
+				}else{
+					return 2;
+				}
 			}
-			return false;
+			return 0;
 		}else if(esLetra(nif[8])){
 			var nums = nif.substring(0,8);
-			if(esDigito(nums)){
-				return caracterControl[nums%23] == nif[8];
+			if(comprobarDigitos(nums)){
+				if(caracterControl[nums%23] == nif[8]){
+					return 1;
+				}else{
+					return 2;
+				}
 			}
-			return false;
+			return 0;
 		}
-		return false;
+		return 0;
+	}else if(nif.length >= 6  && nif.length <= 8){
+		if(comprobarDigitos(nif)){
+			if(nif >= 100000){
+				return 3;
+			}
+			return 0;
+		}
+		return 0;
 	}
-	return false;
+	return 0;
 }
 
 function nombreValido(nombre){
