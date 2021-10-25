@@ -58,9 +58,9 @@ function esCif (cif) {
 							sumPares += parseInt(digitos[i]);
 						}
 						var valorCaracterControl = (sumPares + sumaImpares)/10;
-						if(valorCaracterControl == 10)
+						if(valorCaracterControl == 10){
 							valorCaracterControl = 0;
-
+						}
 						if(esDigito(cif[8])){
 							if(valorCaracterControl == cif[8]){
 								return 1;
@@ -101,4 +101,23 @@ function esNifCif(nifcif){
 	}else{
 		return 0;
 	}
+}
+
+function codigosControl(banco,sucursal,cuenta){
+	var codigoControl = "";
+	var numero1 = banco[0]*4 + banco[1]*8 + banco[2]*5 + banco;
+	var numero2 = sucursal[0]*9 + sucursal[1]*7 + sucursal[2]*3 + sucursal[3]*6;
+	codigoControl += comprobarModulo(11-((numero1 + numero2))%11);
+	var numero3 = cuenta[0] + cuenta[1]*2 + cuenta[2]*4 + cuenta[3]*8 + cuenta[4]*5 + cuenta[5]*10 + cuenta[6]*9 + cuenta[7]*7 + cuenta[8]*3 + cuenta[9]*6;
+	codigoControl +=  comprobarModulo(11 - (numero3%11));
+	return codigoControl;
+}
+
+function comprobarModulo(modulo){
+	if(modulo == 10){
+		modulo = 1;
+	}else if(modulo == 11){
+		modulo = 0;
+	}
+	return modulo,
 }
