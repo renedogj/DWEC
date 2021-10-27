@@ -119,5 +119,35 @@ function comprobarModulo(modulo){
 	}else if(modulo == 11){
 		modulo = 0;
 	}
-	return modulo,
+	return modulo;
 }
+
+function calculoIBANEspanya(codigoCuenta){
+	var codigoCuentaAux = codigoCuenta + "142800";
+	var resto = codigoCuentaAux % 97;
+	codigoControl = 98-resto;
+	if(codigoControl < 10){
+		codigoControl = "0"+codigoControl;
+	}
+	return "ES" + codigoControl + codigoCuenta;
+}
+
+function comprobarIBAN(IBAN){
+	if(IBAN.length < 34){
+		const arrayLetras = range("A","Z");
+		IbanAux = IBAN.substring(4,34) + IBAN.substring(0,4);
+		var arrayIBAN = IbanAux.split("");
+		for(var i = 0; i < arrayIBAN.length; i++){
+			if(esLetra(arrayIBAN[i])){
+				let num = arrayLetras.indexOf(arrayIBAN[i])+10;
+				arrayIBAN.splice(i,1,num);
+			}
+		}
+		IbanAux = arrayIBAN.join("");
+		if(IbanAux%97 == 1){
+			return true;
+		}
+	}
+	return false;
+}
+
