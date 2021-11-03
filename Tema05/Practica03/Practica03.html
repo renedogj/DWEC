@@ -4,10 +4,10 @@
 		<meta name="author" content="Javier Renedo" />
 		<meta charset="utf-8" />
 		<title>Práctica 5-03 </title>
-		<!--<link href="practica03.css" rel="stylesheet" type="text/css" />-->
+		<link href="practica03.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<!--<header>
+		<header>
 			<h1>Práctica 05-03</h1>
 		</header>
 		<nav>
@@ -19,48 +19,123 @@
 					<div>	
 						<form name="primero">
 							<div>
-								<label for="Nif">N.I.F.</label>
-								<input type="text" name="nif" /> <br />
-								<label for="Cif">C.I.F.</label>
-								<input type="text" name="cif" /> <br />
-								<label for="nombre">Nombre</label>
-								<input type="text" name="nombre" /> <br />
-								<label for="apellidos">Apellidos</label>
-								<input type="text" name="apellidos" /> <br />
-								<label for="domicilio">Domicilio</label>
-								<input type="text" name="domicilio" /> <br />
-								<label for="localidad">Localidad</label>
-								<input type="text" name="localidad" /> <br />
-								<label for="cp">Código Postal</label>
-								<input type="text" name="cp" /> <br />
-								<label for="provincia">Provincia</label>
-								<input type="text" name="provincia" /> <br />
+								<label for="razonSocial">Razón Social/Apellido y Nombre</label>
+								<input type="text" name="razonSocial" /> <br />
+								<label for="codigoEmpresa">Código de la Empresa</label>
+								<input type="text" name="codigoEmpresa" /> <br />
+								<label for="CIF/NIF">CIF/NIF de la Empresa</label>
+								<input type="text" name="CifNif" /> <br />
+								<fieldset>
+									<legend>Tipo de persona</legend>
+									<input type="radio" value="Juridica" name="tipoPersona" /> Jurídica 
+									<input type="radio" value="Fisica" name="tipoPersona" /> Física </br>
+								</fieldset>
+								<fieldset>
+									<legend>Domicilio Social/Particular</legend>
+									<label for="direccion">Dirección</label>
+									<input type="text" name="direccion" /> 
+									<label for="telefono">Teléfono</label>
+									<input type="text" name="telefono" /> <br />
+									<label for="localidad">Localidad</label>
+									<input type="text" name="localidad" /> 
+									<label for="cp">Código Postal</label>
+									<input type="text" name="cp" /> <br />
+									<label for="provincia">Provincia</label>
+									<input type="text" name="provincia" /> <br />
+								</fieldset>
+								<fieldset>
+									<legend>Datos Bancarios</legend>
+									<label for="codigoBanco">Código del Banco</label>
+									<input type="text" name="codigoBanco" /> <br />
+									<label for="codigoOficina">Código oficina</label>
+									<input type="text" name="codigoOficina" /> <br />
+									<label for="codigoControl">Código control</label>
+									<input type="text" name="codigoControl" /> <br />
+									<label for="numeroCuenta">Número de cuenta</label>
+									<input type="text" name="numeroCuenta" /> <br />
+									<label for="iban">Iban</label>
+									<input type="text" name="iban" /> <br />
+								</fieldset>
 							</div>
-							<br />
+							<div>
+								<br>
+									<label for="fechaEmpresa">Fecha de Constitución de la Empresa</label>
+									<input type="text" name="fechaEmpresa" /> <br />
+									<label for="numeroTrabajadores">Número de Trabajadores de la Empresa</label>
+									<input type="text" name="numeroTrabajadores" /> <br />
+									<label for="numeroFabricas">Número de Fabricas de la Empresa</label>
+									<input type="text" name="numeroFabricas" /> <br />
+									<label for="comunidades">Comunidades en las que hay Fabricas</label>
+									<select name="comunidades" size="5">
+										<option>Andalucia</option>
+										<option>Aragón</option>
+										<option>Asturias</option>
+										<option>Baleares</option>
+										<option>Canarias</option>
+										<option>Cantabria</option>
+										<option>Castilla la Mancha</option>
+										<option>Castilla y León</option>
+										<option>Cataluña</option>
+										<option>Comunidad Valenciana</option>
+										<option>Extremadura</option>
+										<option>Galicia</option>
+										<option>La Rioja</option>
+										<option>Madrid</option>
+										<option>Murcia</option>
+										<option>Navarra</option>
+										<option>Pais Vasco</option>
+										<option>Ceuta</option>
+										<option>Melilla</option>
+									</select>
+									<fieldset>
+										<legend>Sector/es Económicos</legend>
+											<input type="checkbox" id="Alimentacion" name="Alimentacion" value="Alimentacion">
+											<label for="Alimentacion"> Alimentacion</label>
+											<input type="checkbox" id="Informatica" name="Informatica" value="Informatica">
+											<label for="Informatica"> Informatica</label>
+											<input type="checkbox" id="Comercio" name="Comercio" value="Comercio">
+											<label for="Comercio"> Comercio</label>
+											<input type="checkbox" id="Construcción" name="Construcción" value="Construcción">
+											<label for="Construcción"> Construcción</label>
+											<input type="checkbox" id="Hosteleria" name="Hosteleria" value="Hosteleria">
+											<label for="Hosteleria">Hosteleria</label>
+											<input type="checkbox" id="Automocion" name="Automocion" value="Automocion">
+											<label for="Automocion">Automocion</label>
+											<input type="checkbox" id="Turismo" name="Turismo" value="Turismo">
+											<label for="Turismo">Turismo</label>
+									</fieldset>
+									<fieldset>
+										<legend>Tipo de Empresa</legend>
+											<input type="radio" value="S.A" name="tipoEmpresa" /> S.A
+											<input type="radio" value="S.L" name="tipoEmpresa" /> S.L 
+											<input type="radio" value="S.A.L" name="tipoEmpresa" /> S.A.L
+											<input type="radio" value="Cooperativa" name="tipoEmpresa" /> Cooperativa 
+											<input type="radio" value="Autónomo" name="tipoEmpresa" /> Autónomo
+											<input type="radio" value="Otro" name="tipoEmpresa" /> Otro
+									</fieldset>
+							</div>
 							<div>
 								<fieldset>
-									<legend>Selecciona una provincia</legend>
-									<input type="radio" value="cordoba" name="provin" /> Cordoba </br>
-									<input type="radio" value="leon" name="provin" /> León </br>
-									<input type="radio" value="segovia" name="provin" /> Segovia </br>
-									<input type="radio" value="sevilla" name="provin" /> Sevilla </br>
+										<legend>Pruebas</legend>
+										<label for="Nif">N.I.F.</label>
+										<input type="text" name="nif" /> <br />
+										<label for="Cif">C.I.F.</label>
+										<input type="text" name="cif" /> <br />
+										<label for="NifCIF">Nif/CIF</label>
+										<input type="text" name="NifCif" /> <br />
+										<label for="apellidos">Apellidos</label>
+										<input type="text" name="apellidos" /> <br />
+										<label for="domicilio">Domicilio</label>
+										<input type="text" name="domicilio" /> <br />
+										<label for="localidad">Localidad</label>
+										<input type="text" name="localidad" /> <br />
+										<label for="cp">Código Postal</label>
+										<input type="text" name="cp" /> <br />
+										<label for="provincia">Provincia</label>
+										<input type="text" name="provincia" /> <br />
 								</fieldset>
-								<img src="" name="imgprovincia"/>
 							</div>
 							<br />
-							<div>
-								<fieldset>
-									<legend>Aficiones</legend>
-									<input type="checkbox" value="viajar" name="viajar" /> Viajar
-									<span class="par"><input type="checkbox"  value="leer" name="leer" /> Leer </span></br>
-									<input type="checkbox" value="musica" name="musica" /> Escuchar música
-									<span class="par"><input type="checkbox" value="cine" name="cine" /> Ir al cine </span></br>
-									<input type="checkbox" value="deporte" name="deporte" /> Hacer deporte
-									<span class="par"><input type="checkbox" value="cena" name="cena" /> Salir a cenar </span></br>
-								</fieldset>
-								<img src="" name="img_aficion"/>
-							</div>
-							<a href="" >Instituto</a> <br />
 							<input type="submit" value="Enviar" />
 							<input type="reset" value="Limpiar" />
 						</form>
@@ -72,9 +147,9 @@
 		
 		</footer>
 		<aside>
-		</aside>-->
+		</aside>			
 		<script type="text/javascript" src="validaciones.js"></script>
-		<!--<script type="text/javascript" src="practica-5-03.js"></script>-->
-		<script type="text/javascript" src="funciones.js"></script>		
+		<script type="text/javascript" src="funciones.js"></script>	
+		<script type="text/javascript" src="practica03.js"></script>	
 	</body>
 </html>
