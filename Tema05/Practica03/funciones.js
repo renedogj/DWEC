@@ -44,7 +44,6 @@ function esDigito(digito){
 function esSigno(signo,signos){
 	signos = signos.split("");
 	return signos.includes(signo)
-	//return signo == "ª" || signo == "º" || signo == "-" || signo == ".";
 }
 
 function comprobarRazonSocial(cadena){
@@ -105,7 +104,31 @@ function comprobarLocalidad(localidad){
 	}
 	return true;
 }
+var provincias = ["Araba/Álava","Albacete","Alicante/Alacant","Almería","Ávila","Badajoz","Baleares","Barcelona","Burgos","Cáceres","Cádiz","Castellón/Castelló","Ciudad Real","Córdoba","A Coruña","Cuenca","Gerona","Granada","Guadalajara","Guipúzcoa","Huelva","Huesca","Jaén","León","Lérida","La Rioja","Lugo","Madrid","Málaga","Murcia","Navarra","Orense","Asturias","Palencia","Las Palmas","Pontevedra","Salamanca","Santa Cruz de Tenerife","Cantabria","Segovia","Sevilla","Soria","Tarragona","Teruel","Toledo","Valencia/València","Valladolid","Vizcaya","Zamora","Zaragoza","Ceuta","Melilla"];
 
 function comprobarCodigoPostal(codigoPostal){
-	return codigoPostal >= 1000 && codigoPostal <= 52999;
+	if(codigoPostal >= 1000 && codigoPostal <= 52999){
+		asignarCodigoPostal(codigoPostal.toString());
+	}
+}
+
+function asignarCodigoPostal(cp){
+	console.log(typeof cp);
+	if(cp != null){
+		if(esDigito(cp)){
+			if(cp.length >= 2){
+				provincia = provincias[parseInt(cp.substring(0,2))-1];
+				document.primero.provincia.value = provincia;
+				console.log(provincia);
+			}
+		}
+	}
+}
+
+function comprobarTelefono(telefono){
+	return telefono.length == 9 && comprobarDigitos(telefono) && (telefono[0] == 9 || telefono[0] == 6 || telefono[0] == 7);
+}
+
+function comprobarFax(fax){
+	return fax.length == 9 && comprobarDigitos(fax) && fax[0] == 9;
 }
