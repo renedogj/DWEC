@@ -132,3 +132,27 @@ function comprobarTelefono(telefono){
 function comprobarFax(fax){
 	return fax.length == 9 && comprobarDigitos(fax) && fax[0] == 9;
 }
+
+function comprobarFecha(fecha) {
+	if(fecha.includes("-")){
+		arrayFecha = fecha.split("-");
+	}else if(fecha.includes("/")){
+		arrayFecha = fecha.split("/");
+	}else {
+		return false;
+	}
+
+	if(arrayFecha.length == 3){
+		if(arrayFecha[0].length != 1 && arrayFecha[0].length != 2){
+			return false;
+		}
+		if(arrayFecha[1].length != 1 && arrayFecha[1].length != 2){
+			return false;
+		}
+		if(arrayFecha[2].length != 2 && arrayFecha[2].length != 4){
+			return false;
+		}
+		return true;
+	}
+	return false;
+}
