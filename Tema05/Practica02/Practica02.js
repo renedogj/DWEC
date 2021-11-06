@@ -16,7 +16,7 @@ document.primero.localidad.onblur = colorFondoBlanco;
 document.primero.cp.onblur = colorFondoBlanco;
 document.primero.provincia.onblur = colorFondoBlanco;
 
-document.primero.cp.onchange = comprobarCodigoPostal;
+
 
 function colorFondoRojo () {
 	this.style.backgroundColor = "red";

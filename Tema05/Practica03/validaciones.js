@@ -113,15 +113,6 @@ function codigosControl(banco,sucursal,cuenta){
 	return codigoControl;
 }
 
-function comprobarModulo(modulo){
-	if(modulo == 10){
-		modulo = 1;
-	}else if(modulo == 11){
-		modulo = 0;
-	}
-	return modulo;
-}
-
 function calculoIBANEspanya(codigoCuenta){
 	var codigoCuentaAux = codigoCuenta + "142800";
 	var resto = codigoCuentaAux % 97;
@@ -135,15 +126,9 @@ function calculoIBANEspanya(codigoCuenta){
 function comprobarIBAN(IBAN){
 	if(IBAN.length < 34){
 		const arrayLetras = range("A","Z");
-		IbanAux = IBAN.substring(4,34) + IBAN.substring(0,4);
-		var arrayIBAN = IbanAux.split("");
-		for(var i = 0; i < arrayIBAN.length; i++){
-			if(esLetra(arrayIBAN[i])){
-				let num = arrayLetras.indexOf(arrayIBAN[i])+10;
-				arrayIBAN.splice(i,1,num);
-			}
+		for(let i = 0; i < arrayLetras.length; i++){
+			IBAN = IBAN.replaceAll(arrayLetras[i],(i+10).toString());
 		}
-		IbanAux = arrayIBAN.join("");
 		if(IbanAux%97 == 1){
 			return true;
 		}

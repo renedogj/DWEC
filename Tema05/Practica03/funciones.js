@@ -46,6 +46,15 @@ function esSigno(signo,signos){
 	return signos.includes(signo)
 }
 
+function comprobarModulo(modulo){
+	if(modulo == 10){
+		modulo = 1;
+	}else if(modulo == 11){
+		modulo = 0;
+	}
+	return modulo;
+}
+
 function comprobarRazonSocial(cadena){
 	for(var i = 0; i < cadena.length; i++){
 		if(i == 0){
@@ -112,14 +121,13 @@ function comprobarCodigoPostal(codigoPostal){
 	}
 }
 
-function asignarCodigoPostal(cp){
-	console.log(typeof cp);
+function asignarCodigoPostal(){
+	var cp = document.primero.cp.value;
 	if(cp != null){
 		if(esDigito(cp)){
 			if(cp.length >= 2){
 				provincia = provincias[parseInt(cp.substring(0,2))-1];
 				document.primero.provincia.value = provincia;
-				console.log(provincia);
 			}
 		}
 	}
@@ -155,4 +163,31 @@ function comprobarFecha(fecha) {
 		return true;
 	}
 	return false;
+}
+
+function comprobarComunidades(comunidades) {
+	var contador = 0;
+
+	for (var i = 0; i < comunidades.length; i++) {
+		if (comunidades[i].selected) {
+			contador++;
+		}
+	}
+	if (contador >= 2){
+		return true;
+	}
+	return false;
+}
+
+function comprobarCodBancoSucursal (cod) {
+	return cod.length == 4 && comprobarDigitos(cod);
+}
+
+function comprobarCodControl(codControl,banco,sucursal,cuenta){
+	return codControl.length == 2 && comprobarDigitos(codControl)
+	&& codigosControl(banco,sucursal,cuenta);
+}
+
+function comprobarNumCuenta(cuenta){
+	return cuenta.length == 10 && comprobarDigitos(cuenta);
 }
