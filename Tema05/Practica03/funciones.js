@@ -191,3 +191,27 @@ function comprobarCodControl(codControl,banco,sucursal,cuenta){
 function comprobarNumCuenta(cuenta){
 	return cuenta.length == 10 && comprobarDigitos(cuenta);
 }
+
+function comprobarCheckbox(checkbox){
+	let numSelecionados = 0;
+	for(let x of checkbox){
+		console.log(x);
+		console.log(x.checked);
+		if(x.checked){
+			numSelecionados++;
+		}
+	}
+	return numSelecionados >= 1;
+}
+
+function comprobarSeleccion(selecion){
+	let numSelecionados = 0;
+	for(let x of selecion){
+		console.log(x);
+		console.log(x.checked);
+		if(x.checked){
+			numSelecionados++;
+		}
+	}
+	return numSelecionados == 1;
+}

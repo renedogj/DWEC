@@ -93,6 +93,16 @@ function enviar(){
 		enviar = false;
 	}
 
+	if(!comprobarCheckbox(document.primero.sectoEconomico)){
+		mensajeError += "Se debe seleccionar al menos un sector economico\n";
+		enviar = false;
+	}
+
+	if(!comprobarSeleccion(document.primero.tipoEmpresa)){
+		mensajeError += "Solo se puede selecionar un tipo de empresa\n";
+		enviar = false;
+	}
+
 	if(mensajeError != ""){
 		alert(mensajeError);
 	}
