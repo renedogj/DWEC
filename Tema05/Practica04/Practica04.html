@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Javier Renedo" />
+		<meta charset="utf-8" />
+		<title>Práctica 5-03 </title>
+		<link href="practica04.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<header>
+			<h1>Práctica 05-03</h1>
+		</header>
+		<nav>
+		
+		</nav>
+		<main>
+			<section>
+				<article>
+					<div>	
+						<form name="primero">
+							<div>
+								<label for="razonSocial">Razón Social/Apellido y Nombre</label>
+								<input type="text" name="razonSocial" /> <br />
+								<label for="codigoEmpresa">Código de la Empresa</label>
+								<input type="text" name="codigoEmpresa" /> <br />
+								<label for="CIFNIF">CIF/NIF de la Empresa</label>
+								<input type="text" name="CifNif" /> <br />
+								<fieldset>
+									<legend>Tipo de persona</legend>
+									<input type="radio" value="Juridica" name="tipoPersona" /> Jurídica 
+									<input type="radio" value="Fisica" name="tipoPersona" /> Física </br>
+								</fieldset>
+								<fieldset>
+									<legend>Domicilio Social/Particular</legend>
+									<label for="direccion">Dirección</label>
+									<input type="text" name="direccion" /> 
+									<label for="telefono">Teléfono</label>
+									<input type="text" name="telefono" /> <br />
+									<label for="localidad">Localidad</label>
+									<input type="text" name="localidad" /> 
+									<label for="cp">Código Postal</label>
+									<input type="text" name="cp" /> <br />
+									<label for="provincia">Provincia</label>
+									<input type="text" name="provincia" /> <br />
+								</fieldset>
+								<fieldset>
+									<legend>Datos Bancarios</legend>
+									<label for="codigoBanco">Código del Banco</label>
+									<input type="text" name="codigoBanco" /> <br />
+									<label for="codigoOficina">Código oficina</label>
+									<input type="text" name="codigoOficina" /> <br />
+									<label for="codigoControl">Código control</label>
+									<input type="text" name="codigoControl" /> <br />
+									<label for="numeroCuenta">Número de cuenta</label>
+									<input type="text" name="numeroCuenta" /> <br />
+									<label for="iban">Iban</label>
+									<input type="text" name="iban" /> <br />
+								</fieldset>
+							</div>
+							<div>
+								<br>
+									<label for="fechaEmpresa">Fecha de Constitución de la Empresa</label>
+									<input type="text" name="fechaEmpresa" /> <br />
+									<label for="numeroTrabajadores">Número de Trabajadores de la Empresa</label>
+									<input type="text" name="numeroTrabajadores" /> <br />
+									<label for="numeroFabricas">Número de Fabricas de la Empresa</label>
+									<input type="text" name="numeroFabricas" /> <br />
+									<label for="comunidades">Comunidades en las que hay Fabricas</label>
+									<select name="comunidades" size="5">
+										<option>Andalucia</option>
+										<option>Aragón</option>
+										<option>Asturias</option>
+										<option>Baleares</option>
+										<option>Canarias</option>
+										<option>Cantabria</option>
+										<option>Castilla la Mancha</option>
+										<option>Castilla y León</option>
+										<option>Cataluña</option>
+										<option>Comunidad Valenciana</option>
+										<option>Extremadura</option>
+										<option>Galicia</option>
+										<option>La Rioja</option>
+										<option>Madrid</option>
+										<option>Murcia</option>
+										<option>Navarra</option>
+										<option>Pais Vasco</option>
+										<option>Ceuta</option>
+										<option>Melilla</option>
+									</select>
+									<fieldset>
+										<legend>Sector/es Económicos</legend>
+											<input type="checkbox" id="Alimentacion" name="sectoEconomico" value="Alimentacion">
+											<label for="Alimentacion"> Alimentacion</label>
+											<input type="checkbox" id="Informatica" name="sectoEconomico" value="Informatica">
+											<label for="Informatica"> Informatica</label>
+											<input type="checkbox" id="Comercio" name="sectoEconomico" value="Comercio">
+											<label for="Comercio"> Comercio</label>
+											<input type="checkbox" id="Construcción" name="sectoEconomico" value="Construcción">
+											<label for="Construcción"> Construcción</label>
+											<input type="checkbox" id="Hosteleria" name="sectoEconomico" value="Hosteleria">
+											<label for="Hosteleria">Hosteleria</label>
+											<input type="checkbox" id="Automocion" name="sectoEconomico" value="Automocion">
+											<label for="Automocion">Automocion</label>
+											<input type="checkbox" id="Turismo" name="sectoEconomico" value="Turismo">
+											<label for="Turismo">Turismo</label>
+									</fieldset>
+									<fieldset>
+										<legend>Tipo de Empresa</legend>
+											<input type="radio" value="S.A" name="tipoEmpresa" /> S.A
+											<input type="radio" value="S.L" name="tipoEmpresa" /> S.L 
+											<input type="radio" value="S.A.L" name="tipoEmpresa" /> S.A.L
+											<input type="radio" value="Cooperativa" name="tipoEmpresa" /> Cooperativa 
+											<input type="radio" value="Autónomo" name="tipoEmpresa" /> Autónomo
+											<input type="radio" value="Otro" name="tipoEmpresa" /> Otro
+									</fieldset>
+							</div>
+							<br />
+							<input type="submit" value="Enviar" />
+							<input type="reset" value="Limpiar" />
+						</form>
+					</div>
+				</article>
+			</section>
+		</main>
+		<footer>
+		
+		</footer>
+		<aside>
+		</aside>
+		<script type="text/javascript" src="funciones.js"></script>	
+		<script type="text/javascript" src="validaciones.js"></script>
+		<script type="text/javascript" src="practica04.js"></script>	
+	</body>
+</html>
