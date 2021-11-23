@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>practica-4-3</title>
+</head>
+<body>
+	<label>Valor1</label>
+	<input type="text" id="valor1"><br><br>
+	<label>Valor2</label>
+	<input type="text" id="valor2"><br><br>
+	<label>Valor3</label>
+	<input type="text" id="valor3"><br><br>
+	<label>Valor4</label>
+	<input type="text" id="valor4"><br><br>
+	<label>Valor5</label>
+	<input type="text" id="valor5"><br><br>	
+	<button onclick="mostrarMinimos()">Mínimo</button>
+	<br><br>
+	<label>Minimo</label>
+	<input type="text" id="minimo"><br><br>
+	<script type="text/javascript">
+		function minimo(valor1,valor2,valor3){
+			var min = valor1;
+			for(let x of arguments){
+				if(x < min){
+					min = x;
+				}
+			}
+			return min;
+		}
+		function mostrarMinimos(){
+			v1 = document.getElementById("valor1").value;
+			v2 = document.getElementById("valor2").value;
+			v3 = document.getElementById("valor3").value;
+			v4 = document.getElementById("valor4").value;
+			v5 = document.getElementById("valor5").value;
+			document.getElementById("minimo").value = minimo(v1,v2,v3,v4,v5);
+		}
+	</script>
+</body>
+</html>

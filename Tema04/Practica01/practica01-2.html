@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>practica-4-2</title>
+</head>
+<body>
+	<label>Primer valor máximo</label>
+	<input type="text" id="primerValor"><br><br>
+	<label>Segundo valor máximo</label>
+	<input type="text" id="segundoValor"><br><br>
+	<button onclick="mostrarMaximos()">Máximo</button>
+	<script type="text/javascript">
+		function maximo(num1,num2,num3){
+			var maximos = new Array();
+			maximos[0] = num1;
+			maximos[1] = num2;
+
+			for(let x of arguments){
+				if(x > maximos[0]){
+					maximos[1] = maximos[0];
+					maximos[0] = x;
+				}else{
+					if(x > maximos[1]){
+						maximos[1] = x;
+					}
+				}
+			}
+			return maximos;
+		}
+		function mostrarMaximos(){
+			var maximos = new Array();
+			maximos = maximo(1,4,56,2,7,5);
+			document.getElementById("primerValor").value = maximos[0];
+			document.getElementById("segundoValor").value = maximos[1];
+		}
+	</script>
+</body>
+</html>

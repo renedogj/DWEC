@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>practica-4-1</title>
+</head>
+<body>
+	<label>Resultado de la media aritmética:</label>
+	<input type="text" id="media">
+	<button onclick="mostrarMedia()">Resultado de la Media</button>
+	<script type="text/javascript">
+		function media(){
+			var sum = 0;
+			for(let x of arguments){
+				sum += x;
+			}
+			if(arguments.length > 0){
+				return sum/arguments.length;
+			}else{
+				return 0;
+			}
+		}
+		function mostrarMedia(){
+			document.getElementById("media").value = media(1,2,3,4,5);
+		}
+	</script>
+</body>
+</html>
