@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="Javier Renedo" />
+		<title>Examen Primera Evaluación - Ejercicio Nº 1 </title>
+		<link href="css/ejercicio_1.css" type="text/css" rel="stylesheet" />
+		<script src="ejercicio_1.js" type="text/javascript"></script>
+		<script src="funciones.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Examen Primera Evaluación - Ejercicio Nº 1</h1>
+		</header>
+		<nav>
+		</nav>
+		<main>
+			<section>
+				<article>
+					<form name="primerFormulario">
+						<fieldset>
+							<legend>Datos de Libros</legend>
+							<div  >
+								<label for="codigo">Código del libro</label>
+								<input type="text" name="codigo" /> <br />
+								<label for="titulo">Título </label>
+								<input type="text" name="titulo" /> <br />
+								<label for="autor">Autor </label>
+								<input type="text" name="autor" /> <br />
+								<label for="editorial">Editorial</label>
+								<input type="text" name="editorial" /> <br />
+								<label for="fecha">Fecha de publicación</label>
+								<input type="text" name="fecha" /> <br />
+								<label for="isbn">C&oacute;digo ISBN</label>
+								<input type="text" name="isbn" /> <br />
+								<label for="precio">Precio del libro</label>
+								<input type="text" name="precio" /> <br />
+								<label for="estilo">Estilo del libro</label>
+								<input type="text" name="estilo" /> <br />
+								<label for="paginas">Número de páginas</label>
+								<input type="text" name="paginas" /> <br />
+							</div>
+							<div id="primero">
+								<br />
+								<div class="segundo">
+									<fieldset>
+										<legend>Formato del libro</legend>
+										<input type="radio" name="formato" value="libro" />Libro tapa dura<br />
+										<input type="radio" name="formato" value="bolsillo" />Libro de bolsillo<br />
+										<input type="radio" name="formato" value="librillo" />Libro tapa blanda<br />
+										<input type="radio" name="formato" value="ebook" />Ebook<br />
+										<input type="radio" name="formato" value="audio" />Audio libro<br />
+										<input type="radio" name="formato" value="multimedia" />Libro Multimedia<br />
+									</fieldset>
+									<fieldset>
+										<legend>Idiomas en los que está publicado</legend>
+										<select name="multiidioma" multiple size="15">
+											<option value="espanol">Español</option>
+											<option value="ingles">Inglés</option>
+											<option value="frnaces">Francés</option>
+											<option value="aleman">Alemán</option>
+											<option value="ruso">Ruso</option>
+											<option value="mandarin">Mandarin</option>
+											<option value="japones">Japones</option>
+											<option value="griego">Griego</option>
+											<option value="italiano">Italiano</option>
+											<option value="rumano">Rumano</option>
+											<option value="portugues">Portugués</option>
+											<option value="neerlandes">Neerlandés</option>
+											<option value="danes">Danés</option>
+											<option value="hungaro">Húngaro</option>
+											<option value="serbio">Serbio</option>
+										</select>	
+									</fieldset>
+									<br />
+									<textarea name="comentario" rows="10" cols="40"> Comentario
+									</textarea>
+								</div>
+								<fieldset>
+									<legend>Paises en los que se ha publicado</legend>
+									<input type="checkbox" name="espana" value="espana" />España<br />
+									<input type="checkbox" name="francia" value="francia" />Francia<br />
+									<input type="checkbox" name="granbretana" value="granbretana" />Gran Bretaña<br />
+									<input type="checkbox" name="usa" value="usa" />Estados Unidos<br />
+									<input type="checkbox" name="italia" value="italia" />Italia<br />
+									<input type="checkbox" name="portugal" value="portugal" />Portugal<br />
+									<input type="checkbox" name="grecia" value="grecia" />Greciar<br />
+									<input type="checkbox" name="alemania" value="alemania" />Alemania<br />
+									<input type="checkbox" name="inglaterra" value="inglaterra" />Inglaterra<br />
+									<input type="checkbox" name="rusia" value="rusia" />Rusia<br />
+									<input type="checkbox" name="china" value="china" />China<br />
+									<input type="checkbox" name="japon" value="japon" />Japón<br />
+									<input type="checkbox" name="rumania" value="rumania" />Rumania<br />
+									<input type="checkbox" name="moldavia" value="moldavia" />Moldavia<br />
+									<input type="checkbox" name="belgica" value="belgica" />Belgica<br />
+									<input type="checkbox" name="holanda" value="holanda" />Holanda<br />
+									<input type="checkbox" name="hungria" value="hungria" />Hungría<br />
+									<input type="checkbox" name="serbia" value="serbia" />Serbia<br />
+									<input type="checkbox" name="dinamarca" value="dinamarca" />Dinamarca<br />
+									<input type="checkbox" name="suiza" value="suiza" />Suiza<br />
+									<input type="checkbox" name="argentina" value="argentina" />Argentina<br />
+									<input type="checkbox" name="mejico" value="mejico" />Mejico<br />
+									<input type="checkbox" name="brasil" value="brasil" />Brasil<br />
+								</fieldset>
+							</div>
+						</fieldset>
+						<br />
+						<input type="submit" name="enviar" value="Enviar" />
+					</form>
+				</article>
+			</section>
+		</main>
+		<footer>
+		</footer>
+		<aside>
+		</aside>
+	</body>
+</html>
+	   

@@ -15,7 +15,7 @@ function enviar(){
 	}
 
 	if(!comprobarCodigoEmpresa(document.primero.codigoEmpresa.value)){
-		mensajeError += "El código de empresa introducido no es valido";
+		mensajeError += "El código de empresa introducido no es valido\n";
 		enviar = false;
 	}
 

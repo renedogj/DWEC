@@ -1,0 +1,28 @@
+﻿body {
+	font-family:"Comic Sans MS";
+	font-size:14pt;
+	margin-left:3%;
+	margin-top:2%;
+	background-color:green;
+	color:white;
+	line-height:2.5rem;
+}
+div {
+	margin-left:10%;
+	margin-top:5%;
+	padding-left:8%;
+	padding-top:3%;
+	color:white;
+	background-color:green;
+	width:85%;
+}
+label + input{
+	margin-left:3%;
+}
+input + input{
+	margin-left:3%;
+}
+input {
+	font-family:"Comic Sans MS";
+	font-size:14pt;
+}
