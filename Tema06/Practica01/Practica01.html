@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Practica01</title>
+	<link rel="stylesheet" type="text/css" href="Practica01.css">
+	<script type="text/javascript" src="funciones.js"></script>
+</head>
+<body>
+	<header>
+		<div>
+			<h1>Usuario</h1>
+			<button id="Registrarse">Registrarse</button>
+			<button id="Entrar">Entrar</button>
+		</div>
+	</header>
+	<main>
+		<article>
+			<h2>Definiciones</h2>
+			<form name="formDefiniciones">
+				<label for="palabra">Palabra</label>
+				<input type="text" name="palabra" id="palabra">
+				<br>
+				<label for="significado">Concepto</label>
+				<input type="text" name="significado" id="significado">
+				<br>
+				<input type="button" id="addDefinicion" value="Añadir definicion">
+				<p>Lista de definiciones</p>
+				<ul id="listaDefiniciones">
+				</ul>
+			</form>
+		</article>
+		<article>
+			<h2>Nombres localidades</h2>
+			<form name="formLocalidades">
+				<label for="localidad">Localidad</label>
+				<input type="text" name="localidad" id="localidad">
+				<br>
+				<input type="button" id="addLocalidad" value="Añadir localidad">
+				<p>Lista de localidades ordenadas</p>
+				<ul id="listaLocalidades">
+				</ul>
+			</form>
+		</article>
+		<article>
+			<h2>Listado coches</h2>
+			<form name="formCoches">
+				<label for="marca">Marca</label>
+				<input type="text" name="marca" id="marca">
+				<br>
+				<label for="modelo">Modelo</label>
+				<input type="text" name="modelo" id="modelo">
+				<br>
+				<label for="precio">Precio</label>
+				<input type="text" name="precio" id="precio">
+				<br>
+				<input type="button" id="addCoche" value="Añadir coche">
+				<table id="coches">
+					<thead>
+						<tr>
+							<th>Marca</th>
+							<th>Modelo</th>
+							<th>Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+			</form>
+		</article>
+		<article>
+			<h2>Comunidades autónomas</h2>
+			<form name="formComunidades" id="formComunidades">
+				<select name="selectComunidades" id="selectComunidades">
+					<option value="andalucia">Andalucía</option>
+					<option value="aragon">Aragón</option>
+					<option value="asturias">Principado de Asturias</option>
+					<option value="baleares">Islas Baleares</option>
+					<option value="paisvasco">Paí­s Vasco</option>
+					<option value="canarias">Canarias</option>
+					<option value="cantabria">Cantabria</option>
+					<option value="castillalamancha">Castilla-La Mancha</option>
+					<option value="castillayleon">Castilla y Leon</option>
+					<option value="cataluña">Cataluña</option>
+					<option value="extremadura">Extremadura</option>
+					<option value="galicia">Galicia</option>
+					<option value="madrid">Comunidad de Madrid</option>
+					<option value="murcia">Murcia</option>
+					<option value="navarra">Navarra</option>
+					<option value="rioja">La Rioja</option>
+					<option value="valencia">Comunidad Valenciana</option>
+					<option value="ceuta">Ceuta</option>
+					<option value="melilla">Melilla</option>
+				</select>
+				<br>
+				<input type="button" id="mostrarProvincias" value="Mostrar provincias">
+				<br>
+			</form>
+		</article>
+		<article>
+			<h2>Mensajes</h2>
+			<div id="mensajes"></div>
+			<button id="bttnAddMensaje">Añadir mensaje</button>
+		</article>
+	</main>
+	<script type="text/javascript" src="listadoDefiniciones.js"></script>
+	<script type="text/javascript" src="listadoLocalidades.js"></script>
+	<script type="text/javascript" src="listadoCoches.js"></script>
+	<script type="text/javascript" src="listadoComunidades.js"></script>
+	<script type="text/javascript" src="listadoMensajes.js"></script>
+</body>
+</html>
