@@ -1,0 +1,59 @@
+header{
+	width: 100%;
+}
+
+.div-usuario{
+	position: relative;
+	float: right;
+	margin-right: 50px;
+}
+
+.dialogIncioSesion{
+	background-color: #848484;
+	position: absolute;
+	z-index: 1;
+	top:  20vh;
+	width: 25%;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 4% 0;
+	box-shadow: 0px 0px 40px 10px #1C1C1C;
+}
+
+.dialogIncioSesion h1{
+	text-align: center;
+}
+
+.div-contenedora-labelinput{
+	position: relative;
+	width: 80%;
+	margin: 5% 10%;
+}
+
+.div-contenedora-labelinput label{
+	position: relative;
+	width: 96%;
+	height: 25px;
+	margin: 2%;
+	font-size: 17px;
+}
+
+.div-contenedora-labelinput input{
+	position: relative;
+	width: 100%;
+	height: 2.5em;
+}
+
+.div-botones{
+	position: relative;
+	width: 70%;
+	display: flex;
+	margin: 10% 15% 0;
+}
+
+.dialogIncioSesion .div-botones button{
+	position: relative;
+	width: 35%;
+	height: 30px;
+	margin: 1% 7.5%;
+}

@@ -1,6 +1,3 @@
-var bttnmostrarProvincias = document.getElementById("mostrarProvincias");
-bttnmostrarProvincias.addEventListener("click",mostrarProvincias);
-
 var andalucia = ["Almería","Cádiz","Cordoba","Granada","Huelva","Jaén","Málaga","Sevilla"];;
 var aragon = ["Huesca","Teruel","Zaragoza"];
 var asturias = ["Asturias"];
@@ -21,24 +18,22 @@ var valencia = ["Alicante","Castellon","Valencia"];
 var ceuta = ["Ceuta"];
 var melilla = ["Melilla"];
 
-function mostrarProvincias(){
-	let selectComunidades = document.getElementById("selectComunidades");
-	let comunidadSelecionada = selectComunidades.value;
+$("#mostrarProvincias").click(function(){
+	let comunidadSelecionada = $("#selectComunidades").val();
 	let provincias = eval(comunidadSelecionada);
 
-	let selectProvincias = document.getElementById("selectProvincias");
+	let selectProvincias = $("#selectProvincias");
 	if(selectProvincias != null){
 		selectProvincias.remove();
 	}
-	selectProvincias = document.createElement("select");
-	selectProvincias.id = "selectProvincias";
+	selectProvincias = '<select id="selectProvincias">';
 
 	for(var i = 0; i < provincias.length; i++){
-		let option = document.createElement("option");
-		option.append(document.createTextNode(provincias[i]));
-		selectProvincias.append(option);
+		selectProvincias += "<option>"+provincias[i]+"</option>";
 	}
 
-	document.getElementById("formComunidades").append(selectProvincias);
-}
+	selectProvincias += "</select>";
+
+	$("#formComunidades").append(selectProvincias);
+});
 
