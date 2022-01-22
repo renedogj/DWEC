@@ -61,12 +61,21 @@ function aceptar(){
     cancelar();
 
     let divMensaje = document.createElement("div");
-    let h3Titulo = document.createElement("h3");
-    h3Titulo.append(document.createTextNode(msgTitulo.value));
+    let h2Nombre = document.createElement("h2");
+    h2Nombre.append(document.createTextNode(getNombre()));
+    let h4Titulo = document.createElement("h4");
+    h4Titulo.append(document.createTextNode(msgTitulo.value));
     let pTexto = document.createElement("p");
     pTexto.append(document.createTextNode(msgTexto.value));
-    divMensaje.append(h3Titulo);
+    divMensaje.append(h2Nombre);
+    divMensaje.append(h4Titulo);
     divMensaje.append(pTexto);
 
     document.getElementById("mensajes").append(divMensaje);
+}
+
+function getNombre(){
+    let cookies = document.cookie;
+    cookieNombre = cookies.split("=");
+    return cookieNombre[0];
 }

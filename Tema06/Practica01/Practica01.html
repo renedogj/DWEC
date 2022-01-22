@@ -4,16 +4,32 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Practica01</title>
-	<link rel="stylesheet" type="text/css" href="Practica01.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<script type="text/javascript" src="funciones.js"></script>
 </head>
 <body>
 	<header>
-		<div>
+		<div class="div-usuario">
 			<h1>Usuario</h1>
-			<button id="Registrarse">Registrarse</button>
-			<button id="Entrar">Entrar</button>
+			<button id="registrarse">Registrarse</button>
+			<button id="entrar">Entrar</button>
 		</div>
+		<dialog id="dialogInicio" class="dialogIncioSesion">
+				<h1></h1>
+				<div class="div-contenedora-labelinput">
+					<label for="usuario">Usuario:</label>
+					<input type="text" id="inputUsuario" maxlength="45" size="30" placeholder=" Usuario">
+				</div>
+				<div class="div-contenedora-labelinput">
+					<label for="password">Contraseña:</label>
+					<input id="inputPassword" type="password" size="30" maxlength="25" placeholder=" Contraseña"/>
+				</div>
+				<div class="div-botones">
+					<button id="bttnCancelar">Cancelar</button>
+					<button id="bttnAceptar">Aceptar</button>
+				</div>
+		</dialog>
 	</header>
 	<main>
 		<article>
@@ -106,6 +122,7 @@
 			<button id="bttnAddMensaje">Añadir mensaje</button>
 		</article>
 	</main>
+	<script type="text/javascript" src="inicioSesion.js"></script>
 	<script type="text/javascript" src="listadoDefiniciones.js"></script>
 	<script type="text/javascript" src="listadoLocalidades.js"></script>
 	<script type="text/javascript" src="listadoCoches.js"></script>

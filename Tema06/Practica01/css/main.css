@@ -1,7 +1,8 @@
 *{
-	margin: o;
+	margin: 0;
 	padding: 0;
 }
+
 body {
 	background-color:blue;
 	color:white;
@@ -14,21 +15,15 @@ body {
 	margin-bottom: 20px;
 }
 
-header{
-	width: 100%;
-}
-
-header div{
-	position: relative;
-	float: right;
-	margin-right: 50px;
-}
-
 main{
 	position: relative;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+}
+
+article{
+	margin: 5% 0;
 }
 
 dt{
