@@ -1,0 +1,10 @@
+body{
+	background-color: blue;
+}
+
+.divForm{
+	width: 50%;
+	border: solid 1px;
+	color: white;
+	padding: 1%;
+}
